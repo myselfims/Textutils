@@ -77,18 +77,14 @@ export default function Form() {
         setText(newText)
 
     }
-    const decrypt = ()=>{
-        let newText = '';
-        for (let char of text){
-            if (char !== ','){
-                newText += Object.keys(encrypt_char).find(key => encrypt_char[key] === char)
-            }else{
-                newText += ' ';
 
-            }
-        }
-        setText(newText)
-
+    const [copyBtnText,setCopyText] = useState('Copy')
+    const copyText = ()=>{
+        window.navigator.clipboard.writeText(text)
+        setCopyText('Copied')
+        setTimeout(() => {
+            setCopyText('Copy')
+        }, 500);
     }
 
   return (
@@ -99,14 +95,15 @@ export default function Form() {
         <textarea value={text} className="form-control" id="exampleFormControlTextarea1" onChange={changeHandler} rows="8"></textarea>
         <button onClick={toUpperCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
         <button onClick={toLowerCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
+        <button onClick={copyText} className="btn btn-primary my-4 mx-3"><i class="fa-solid fa-copy"></i>{copyBtnText}</button>
         <button onClick={encrypt} className="btn btn-primary my-4 mx-3">{textMode}</button>
         </div>
     </div>
     <div className="container">
         <h1>Your text summary.</h1>
-        <p>Word : {text.split(' ').length}</p>
+        <p>Word : {text.split(' ').filter((elem)=>{return elem.length !== 0}).length}</p>
         <p>Characters : {text.length}</p>
-        <p>Read time : { 0.008 * text.split(' ').length}</p>
+        <p>Read time : { 0.008 * text.split(' ').filter((elem)=>{return elem.length !== 0}).length}</p>
         <h2>Preview</h2>
         <p>{text}</p>
     </div>
