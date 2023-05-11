@@ -93,10 +93,10 @@ export default function Form(props) {
         <div className="mb-3">
         <h1>Enter text here</h1>
         <textarea value={text} className={`form-control bg-${props.mode} text-${props.mode==='dark'?'light':'dark'}`}id="exampleFormControlTextarea1" onChange={changeHandler} rows="8"></textarea>
-        <button onClick={toUpperCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
-        <button onClick={toLowerCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
-        <button onClick={copyText} className="btn btn-primary my-4 mx-3"><i className="fa-regular fa-copy"></i> {copyBtnText}</button>
-        <button onClick={encrypt} className="btn btn-primary my-4 mx-3">{textMode}</button>
+        <button disabled={text.length===0} onClick={toUpperCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
+        <button disabled={text.length===0} onClick={toLowerCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
+        <button disabled={text.length===0} onClick={copyText} className="btn btn-primary my-4 mx-3"><i className="fa-regular fa-copy"></i> {copyBtnText}</button>
+        <button disabled={text.length===0} onClick={encrypt} className="btn btn-primary my-4 mx-3">{textMode}</button>
         </div>
     </div>
     <div className="container">
