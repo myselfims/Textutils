@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-export default function Form() {
+export default function Form(props) {
     const [text,setText] = useState('Hello World')
     const [textMode, setTextMode] = useState('Encrypt')
 
@@ -92,10 +92,10 @@ export default function Form() {
     <div>
         <div className="mb-3">
         <h1>Enter text here</h1>
-        <textarea value={text} className="form-control" id="exampleFormControlTextarea1" onChange={changeHandler} rows="8"></textarea>
+        <textarea value={text} className={`form-control bg-${props.mode} text-${props.mode==='dark'?'light':'dark'}`}id="exampleFormControlTextarea1" onChange={changeHandler} rows="8"></textarea>
         <button onClick={toUpperCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
         <button onClick={toLowerCase} className="btn btn-primary my-4 mx-3">UPPER CASE</button>
-        <button onClick={copyText} className="btn btn-primary my-4 mx-3"><i class="fa-solid fa-copy"></i>{copyBtnText}</button>
+        <button onClick={copyText} className="btn btn-primary my-4 mx-3"><i className="fa-regular fa-copy"></i> {copyBtnText}</button>
         <button onClick={encrypt} className="btn btn-primary my-4 mx-3">{textMode}</button>
         </div>
     </div>

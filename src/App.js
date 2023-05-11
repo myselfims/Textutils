@@ -35,7 +35,7 @@ function App() {
    <Navbar toggler={toggleMode} mode={mode} />
    <Alert alert={alertobj}/>
    <div  className="container">
-    <Form />
+    <Form mode={mode} />
     {/* <Routes> */}
       {/* <Route exact path="/form" Component={Form}/>      */}
     {/* </Routes> */}
