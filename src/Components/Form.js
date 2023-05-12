@@ -101,7 +101,7 @@ export default function Form(props) {
     </div>
     <div className="container">
         <h1>Your text summary.</h1>
-        <p>Word : {text.split(' ').filter((elem)=>{return elem.length !== 0}).length}</p>
+        <p>Word : {text.split(/\s/).filter((elem)=>{return elem.length !== 0}).length}</p>
         <p>Characters : {text.length}</p>
         <p>Read time : { 0.008 * text.split(' ').filter((elem)=>{return elem.length !== 0}).length}</p>
         <h2>Preview</h2>
