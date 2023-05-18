@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <script src="/src/Components/jsapi.js"></script>
+  <script src="/src/Components/Translator.js"></script>
     <App />
   </React.StrictMode>
 );
